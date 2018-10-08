@@ -25,5 +25,10 @@ module.exports = {
         new HtmlWebpackPlugin({
             title: 'Output Management'
         })
-    ]
+    ],
+    devServer: {
+        contentBase: path.join(__dirname, "dist"),
+        compress: true,
+        port: 9000
+      }
 };

@@ -4,7 +4,9 @@ module.exports = function () {
             useBuiltIns: "usage"
         }]
     ];
-    const plugins = ["transform-decorators"];
+    const plugins = [
+        ["@babel/plugin-proposal-decorators", { "legacy": true }],
+      ]
 
     return {
         presets,
