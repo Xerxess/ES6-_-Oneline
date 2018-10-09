@@ -1,52 +1,44 @@
-let [a, b, c] = [1, 2, 3];
-const const1 = function () {
-    console.log('const');
-};
+import get_set from './getter_setter_accessors';
 
+console.log(get_set.x);
+get_set.x = "test";
+console.log(get_set.x);
 
-
-const1();
-
-console.log(a, b, c);
-
-let fun = function (a, ...s) {
-    console.log(a);
-    console.log(s);
+var obj = {
+    a: 'a'
 }
 
-let f1 = function ({ name, sex }) {
-    console.log(name);
-    console.log(sex);
+Object.defineProperty(obj, 'b', {
+    configurable:true,
+    enumerable:true,
+    get: function () {
+        this.a;
+    },
+    set: function (v) {
+        this.a = 'b';
+    }
+})
+
+console.log(Object.getOwnPropertyDescriptor(obj, 'b'));
+
+
+for(var key in obj){
+    console.log(key);
 }
 
-function push(array, ...items) {
-    items.forEach(function (item) {
-        array.push(item);
-        console.log(item);
-    });
-}
+console.log(Object.keys(obj));
 
+const entries = new Map([
+    ['foo', 'bar'],
+    ['baz', 42]
+  ]);
+  
+//   const obj1 = Object.fromEntries(entries);
+  
+//   console.log(obj1);
 
-push([], 1, 2, 3);
+  let fooKey = Symbol("foo");
 
-fun('a', { name: '杨川', sex: '男' }, 'b', 'c');
-
-f1({
-
-    name: 'name',
-    sex: 'sex'
-});
-
-
-@testable
-class MyTestableClass {
-    // ...
-}
-
-function testable(target) {
-    target.isTestable = true;
-}
-
-MyTestableClass.isTestable // true
-
-console.log(MyTestableClass.isTestable);
+  let foo_obj={};
+  foo_obj[fooKey]='Symbol';
+  console.log(foo_obj[fooKey]);

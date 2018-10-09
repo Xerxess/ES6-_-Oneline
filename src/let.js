@@ -1,0 +1,1 @@
+return ({ get x(){ return 1 } }).x === 1;
