@@ -12,4 +12,9 @@ import decorator from './decorator';
 
 
 
+import axios from 'axios';
 
+axios('/json/1.json').
+    then(function (res) {
+        console.log(res);
+    });
