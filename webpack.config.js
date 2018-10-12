@@ -26,7 +26,10 @@ module.exports = {
         new HtmlWebpackPlugin({
             title: 'Output Management'
         }),
-        new CopyWebpackPlugin([{ from: './src/json/*.*', to: './json' }], {})
+        new CopyWebpackPlugin([
+            { context: './src/json/', from: '*', to: './json' }
+        ],
+            {})
     ],
     devServer: {
         contentBase: path.join(__dirname, "dist"),
